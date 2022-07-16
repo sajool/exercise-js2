@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>js ex-2 maghami</title>
+    <style>
+        .parent{
+            width:80%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        .accordion {
+            background-color: #7f94bf;
+            color: #cbd7ef;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            font-size: 12px;
+            border-radius: 10px;
+        }
+
+        .text-box p {
+            display: none;
+            padding: 10px;
+        }
+
+        .active, .accordion:hover {
+            background-color: #6679a1;
+        }
+
+        .accordion:after {
+            content: '\002B';
+            color: #cbd7ef;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+
+        <button class="accordion " onclick="_open(this)">accordion1</button>
+        <div class="text-box">
+            <p id="accordion1">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+        </div>
+
+        <button class="accordion" onclick="_open(this)">accordion2</button>
+        <div class="text-box">
+            <p id="accordion2">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+        </div>
+
+        <button class="accordion" onclick="_open(this)">accordion3</button>
+        <div class="text-box">
+            <p id="accordion3">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+        </div>
+    </div>
+
+
+    <script>
+
+
+        let _p = document.querySelectorAll('.text-box p');
+        let _s = document.querySelectorAll('.accordion');
+        _p[0].style.display = "block"
+        _s[0].classList.add('active');
+
+        function _open(x) {
+
+            for (i = 0; i < _p.length; i++) {
+                document.getElementsByTagName('p')[i].style.display = "none";
+                _s[i].classList.remove('active');
+            }
+            document.getElementById(x.innerHTML).style.display = "block";
+            x.classList.add('active');
+
+        }
+
+    </script>
+</body>
+
+</html>
